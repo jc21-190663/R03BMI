@@ -27,29 +27,38 @@ namespace R03BMI
                 double w = double.Parse(weight);
 
                 //BMI計算
-                double bmi = w / ((h / 100) * (h / 100));
+                /*double bmi = w / ((h / 100) * (h / 100));*/
+
+                if (h > 10)
+                {
+                    h = h / 100;
+                }
+                if (w > 1000)
+                {
+                    w = w / 1000;
+                }
 
                 //BMIを四捨五入
-                double bmi2 = Math.Round(bmi, 1, MidpointRounding.AwayFromZero);
+                double bmi = Math.Round(w / ( h * h ),1);
 
                 /*//BMIのランク付け
                 String rank = null;*/
 
                 if (bmi >= 30.0)
                 {
-                    result.Text = "あなたのBMIは"+bmi2+"で、高肥満です。";
+                    result.Text = "あなたのBMIは"+bmi+"で、高肥満です。";
                 }
                 else if (bmi >= 25.0)
                 {
-                    result.Text = "あなたのBMIは" + bmi2 + "で、肥満です。";
+                    result.Text = "あなたのBMIは" + bmi + "で、肥満です。";
                 }
                 else if (bmi >= 18.5)
                 {
-                    result.Text = "あなたのBMIは" + bmi2 + "で、標準です。";
+                    result.Text = "あなたのBMIは" + bmi + "で、標準です。";
                 }
                 else
                 {
-                    result.Text = "あなたのBMIは" + bmi2 + "で、やせです。";
+                    result.Text = "あなたのBMIは" + bmi + "で、やせです。";
                 }
 
                 /* String rank = rank; */
