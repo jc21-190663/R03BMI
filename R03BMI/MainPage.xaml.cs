@@ -23,8 +23,8 @@ namespace R03BMI
 
             try
             {
-                double h = Double.Parse(height);
-                double w = Double.Parse(weight);
+                double h = double.Parse(height);
+                double w = double.Parse(weight);
 
                 //BMI計算
                 double bmi = w / ((h / 100) * (h / 100));
@@ -60,7 +60,7 @@ namespace R03BMI
             catch(FormatException ex) 
             {
                 Console.WriteLine(ex);
-                result.Text = "!!!!!";
+                result.Text = "エラーです！！";
             }
         }
     }
